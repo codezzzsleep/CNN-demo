@@ -33,7 +33,7 @@ class MyLeNet5(nn.Module):
         x = self.c5(x)
         x = self.flatten(x)
         x = self.f6(x)
-        x = self.output
+        x = self.output(x)
 
         return x
 
@@ -43,3 +43,4 @@ if __name__ == "__main__":
     x = torch.randn([1, 1, 28, 28])
     model = MyLeNet5()
     y = model(x)
+    print(type(y))
